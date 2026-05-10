@@ -3,30 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моё Видео</title>
+    <title>Моя Профессия: Дизайнер</title>
+    <link href="https://googleapis.com" rel="stylesheet">
     <style>
+        :root {
+            --primary: #00ff88;
+            --bg: #0a0a0a;
+            --card-bg: #161616;
+        }
+
         body {
             margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: white;
             display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Видео-блок */
+        .hero {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #000;
+            position: relative;
+            background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
         }
+
         video {
-            max-width: 90%;
-            max-height: 90%;
-            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+            width: 80%;
+            max-width: 900px;
+            border-radius: 20px;
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.2);
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
         }
+
+        /* Крутая кнопка Enter */
+        .enter-btn {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--bg);
+            background: var(--primary);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .enter-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.5);
+        }
+
+        /* Контентная часть */
+        .content {
+            max-width: 800px;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        h1 { font-size: 3rem; margin-bottom: 20px; background: linear-gradient(to right, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+            text-align: left;
+        }
+
+        .card:hover { border-color: var(--primary); background: #1f1f1f; }
+        .card h3 { color: var(--primary); margin-top: 0; }
+        .card p { font-size: 0.9rem; line-height: 1.6; color: #ccc; }
+
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
 
-    <!-- Замени video.mp4 на имя своего файла -->
-    <video controls autoplay muted>
-        <source src="video.mp4" type="video/mp4">
-        Ваш браузер не поддерживает видео.
-    </video>
+    <section class="hero">
+        <video controls autoplay muted loop>
+            <source src="video.mp4" type="video/mp4">
+        </video>
+        <a href="#about" class="enter-btn">ENTER / УЗНАТЬ БОЛЬШЕ</a>
+    </section>
+
+    <section id="about" class="content">
+        <h1>Моя цель — Дизайнер</h1>
+        <p>Дизайн — это не просто картинки, это решение проблем и создание смыслов.</p>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Творческая свобода</h3>
+                <p>Возможность превращать идеи из головы в реальные продукты, которые видят тысячи людей.</p>
+            </div>
+            <div class="card">
+                <h3>Удаленная работа</h3>
+                <p>Дизайнер может работать из любой точки мира, имея только ноутбук и интернет.</p>
+            </div>
+            <div class="card">
+                <h3>Высокий доход</h3>
+                <p>Профессионалы в UX/UI и моушн-дизайне ценятся очень высоко и быстро растут в зарплате.</p>
+            </div>
+            <div class="card">
+                <h3>Постоянный рост</h3>
+                <p>Каждый новый проект — это новый вызов и развитие насмотренности и навыков.</p>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
+
